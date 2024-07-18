@@ -1,9 +1,12 @@
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+import ProjectCard from './components/ProjectCard.vue';
 import axios from 'axios';
 
 export default {
   name: 'App',
+  components:{
+    ProjectCard,
+  },
 
   data() {
     return {
@@ -21,7 +24,8 @@ export default {
 }
 </script>
 <template>
-  {{ projects }}
+  <!-- {{ projects }} -->
+  <ProjectCard />
 </template>
 
 <style scoped>

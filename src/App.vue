@@ -1,13 +1,12 @@
 <script>
-import ProjectCard from './components/ProjectCard.vue'
+import AppHeader from './components/AppHeader.vue'
 import axios from 'axios'
 
 export default {
   name: 'App',
-  components:{
-    ProjectCard,
+  components: {
+    AppHeader
   },
-
   data() {
     return {
       projects: ''
@@ -24,27 +23,11 @@ export default {
 }
 </script>
 <template>
+  <AppHeader />
   <!-- {{ projects[1].title}} -->
-    <div class="container d-flex flex-wrap">
-      <ProjectCard v-for="project in projects" :card="project"/>
-    </div>
+  <router-view></router-view>
   
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-template{
-  color: white;
-}
 </style>

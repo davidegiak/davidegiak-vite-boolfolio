@@ -1,6 +1,6 @@
 <script>
-import ProjectCard from './components/ProjectCard.vue';
-import axios from 'axios';
+import ProjectCard from './components/ProjectCard.vue'
+import axios from 'axios'
 
 export default {
   name: 'App',
@@ -18,14 +18,17 @@ export default {
   mounted() {
     axios.get('http://127.0.0.1:8000/api/projects').then(response => {
       console.log(response);
-      this.projects = response.data.projects
+      this.projects = response.data.projects.data
     })
   }
 }
 </script>
 <template>
-  <!-- {{ projects }} -->
-  <ProjectCard />
+  <!-- {{ projects[1].title}} -->
+    <div class="container d-flex flex-wrap">
+      <ProjectCard v-for="project in projects" :card="project"/>
+    </div>
+  
 </template>
 
 <style scoped>
